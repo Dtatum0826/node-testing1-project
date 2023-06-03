@@ -36,10 +36,10 @@ function trimPropertiesMutation(obj) {
     if (Object.prototype.hasOwnProperty.call(obj, key)) {
       obj[key] = obj[key].trim();
     }
-  }
+  } return obj
 }
 trimPropertiesMutation({ foo: '  foo ', bar: 'bar ', baz: ' baz' })
-/**
+/** //
  * [Exercise 3] findLargestInteger finds the largest integer in an array of objects { integer: 1 }
  * @param {object[]} integers - an array of objects
  * @returns {number} - the largest integer
@@ -48,9 +48,13 @@ trimPropertiesMutation({ foo: '  foo ', bar: 'bar ', baz: ' baz' })
  * findLargestInteger([{ integer: 1 }, { integer: 3 }, { integer: 2 }]) // returns 3
  */
 function findLargestInteger(integers) {
-  // ✨ implement
-  const arr = integers.map(obj => obj.integer)
-  return Math.max(...arr)
+
+ for (let i = 0; i < integers.length; i++){
+  let result =integers[0].integer
+ if(integers[i].integer > result){
+  result = integers[i].integer
+}return result
+ }
 
 }
 
