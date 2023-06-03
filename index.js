@@ -20,19 +20,25 @@ function trimProperties(obj) {
     return trimmedObj;
   
 }
-trimProperties({ foo: '  foo ', bar: 'bar ', baz: ' baz' })
 /**
  * [Exercise 2] trimPropertiesMutation trims in place the properties of an object
  * @param {object} obj - an object with properties that are strings
  * @returns {object} - the same object with strings trimmed
  *
+ *
  * EXAMPLE
  * trimPropertiesMutation({ name: '  jane  ' }) // returns the object mutated in place { name: 'jane' }
  */
+
 function trimPropertiesMutation(obj) {
   // ✨ implement
+  for (const key in obj) {
+    if (Object.prototype.hasOwnProperty.call(obj, key)) {
+      obj[key] = obj[key].trim();
+    }
+  }
 }
-
+trimPropertiesMutation({ foo: '  foo ', bar: 'bar ', baz: ' baz' })
 /**
  * [Exercise 3] findLargestInteger finds the largest integer in an array of objects { integer: 1 }
  * @param {object[]} integers - an array of objects
@@ -43,6 +49,9 @@ function trimPropertiesMutation(obj) {
  */
 function findLargestInteger(integers) {
   // ✨ implement
+  const arr = integers.map(obj => obj.integer)
+  return Math.max(...arr)
+
 }
 
 class Counter {
